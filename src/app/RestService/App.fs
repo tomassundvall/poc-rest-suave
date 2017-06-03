@@ -1,5 +1,6 @@
 // --------------------------------------------------------------------------------------------------
 // - http://blog.tamizhvendan.in/blog/2015/06/11/building-rest-api-in-fsharp-using-suave/
+// - http://blog.tamizhvendan.in/blog/2015/07/15/securing-apis-in-suave-using-json-web-token/
 // --------------------------------------------------------------------------------------------------
 module RestService.App
 
