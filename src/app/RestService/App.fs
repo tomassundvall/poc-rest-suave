@@ -3,7 +3,9 @@
 // --------------------------------------------------------------------------------------------------
 module RestService.App
 
-open Log
+open RestService.Log
+open RestService.Db
+open RestService.Restful
 open Suave
 open Suave.Successful
 
@@ -11,7 +13,14 @@ let logger = new Logger("RestService.App")
 
 [<EntryPoint>]
 let main argv =
-    logger.Debug "Starting suave..."
+    logger.Debug "--- RestService startup..."
 
-    startWebServer defaultConfig (OK "Hello World!")
+    let personWebPart = rest "people" {
+        GetAll = getPeople
+        Create = createPerson
+        Update = updatePerson
+        Delete = deletePerson
+    }
+
+    startWebServer defaultConfig personWebPart
     0
